@@ -1,0 +1,14 @@
+{
+  "name": "advent-js-2022",
+  "version": "1.0.0",
+  "description": "advent js 2022 challenges",
+  "main": "index.js",
+  "scripts": {
+    "challenge01": "node challenge01",
+    "challenge02": "node challenge02",
+    "challenge03": "node challenge03",
+    "challenge04": "node challenge04"
+  },
+  "author": "Alex Martinez",
+  "license": "ISC"
+}
