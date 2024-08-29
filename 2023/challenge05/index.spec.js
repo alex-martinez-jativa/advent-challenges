@@ -1,23 +1,86 @@
 /* global describe, test, expect */
 const cyberReindeer = require('./index')
 
-describe('cyberReindeer method', () => {
-  test('should return the mock result', () => {
-    const mockResult = [
-      'S..|...|..', // estado inicial
-      '.S.|...|..', // avanza el trineo la carretera
-      '..S|...|..', // avanza el trineo la carretera
-      '..S|...|..', // el trineo para en la barrera
-      '..S|...|..', // el trineo para en la barrera
-      '...S...*..', // se abre la barrera, el trineo avanza
-      '...*S..*..', // avanza el trineo la carretera
-      '...*.S.*..', // avanza el trineo la carretera
-      '...*..S*..', // avanza el trineo la carretera
-      '...*...S..', // avanza por la barrera abierta
-    ]
-    const road = 'S..|...|..'
-    const time = 10 // unidades de tiempo
-    const result = cyberReindeer(road, time)
-    expect(result).toEqual(mockResult)
-  })
+test("Test #01 - Returns an Array", () => {
+  expect(
+    Array.isArray(
+      cyberReindeer('S..|...|..', 10)
+    )
+  ).toBe(true)
+})
+
+test("Test #02 - cyberReindeer('S..|...|..', 10)", () => {
+  expect(cyberReindeer('S..|...|..', 10)).toStrictEqual([
+    "S..|...|..",
+    ".S.|...|..",
+    "..S|...|..",
+    "..S|...|..",
+    "..S|...|..",
+    "...S...*..",
+    "...*S..*..",
+    "...*.S.*..",
+    "...*..S*..",
+    "...*...S.."
+  ])
+})
+
+
+test("Test #03 - cyberReindeer('S.|.', 4)", () => {
+  expect(cyberReindeer('S.|.', 4)).toStrictEqual([
+    "S.|.",
+    ".S|.",
+    ".S|.",
+    ".S|."
+  ])
+})
+
+test("Test #04 - cyberReindeer('S.|.|.', 7)", () => {
+  expect(cyberReindeer('S.|.|.', 7)).toStrictEqual([
+    "S.|.|.",
+    ".S|.|.",
+    ".S|.|.",
+    ".S|.|.",
+    ".S|.|.",
+    "..S.*.",
+    "..*S*."
+  ])
+})
+
+test("Test #05 - cyberReindeer('S.|..', 6)", () => {
+  expect(cyberReindeer('S.|..', 6)).toStrictEqual([
+    "S.|..",
+    ".S|..",
+    ".S|..",
+    ".S|..",
+    ".S|..",
+    "..S.."
+  ])
+})
+
+test("Test #06 - cyberReindeer('S.|.|.|......|.||.........', 8)", () => {
+  expect(cyberReindeer('S.|.|.|......|.||.........', 8)).toStrictEqual([
+    "S.|.|.|......|.||.........",
+    ".S|.|.|......|.||.........",
+    ".S|.|.|......|.||.........",
+    ".S|.|.|......|.||.........",
+    ".S|.|.|......|.||.........",
+    "..S.*.*......*.**.........",
+    "..*S*.*......*.**.........",
+    "..*.S.*......*.**........."
+  ])
+})
+
+test("Test #07 - cyberReindeer('S.|', 8)", () => {
+  const res = cyberReindeer('S.|', 8)
+  console.info( res, "color: blue")
+  expect(cyberReindeer('S.|', 8)).toStrictEqual([
+    "S.|",
+    ".S|",
+    ".S|",
+    ".S|",
+    ".S|",
+    "..S",
+    "..S",
+    "..S",
+  ])
 })
