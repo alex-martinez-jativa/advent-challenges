@@ -1,23 +1,26 @@
 function createChristmasTree(ornaments, height) {
-  let tree = '';
-  
-  for (let i = 1; i <= height; i++) {
-    let part = '';
-    
-    for (let j = 0; j < i; j++) {
-      part += ' ' + ornaments[j % ornaments.length];
+  let tree = ''
+  let ornamentIndex = 0
+
+  for (let i = 0; i < height; i++) {
+    let spaces = ' '.repeat(height - i - 1)
+    let row = ''
+
+    for (let j = 0; j <= i; j++) {
+      row += ornaments[ornamentIndex % ornaments.length] + ' '
+      ornamentIndex++
     }
-    
-    // Añadir espacios a la izquierda para centrar
-    let spaces = ' '.repeat(height - i);
-    
-    tree += spaces + part + '\n'; // Añadir salto de línea para cada nivel
+
+    tree += spaces + row.trimEnd() + '\n'
   }
-  
-  return tree + '|' + '\n';
+
+  tree += ' '.repeat(height - 1) + '|' + '\n'
+
+  return tree
 }
 
-const ornaments = ['*', '@', '#'];
-const height = 4;
-const tree = createChristmasTree(ornaments, height);
-console.log(tree);
+const ornaments = ['x', 'o']
+const height = 4
+const tree = createChristmasTree(ornaments, height)
+
+console.log(tree)
