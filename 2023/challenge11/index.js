@@ -1,11 +1,11 @@
-function getIndexsForPalindrome(str) {
+function getIndexsForPalindrome(word) {
   const isPalindrome = (s) => s === s.split('').reverse().join('')
 
-  if (isPalindrome(str)) return []
+  if (isPalindrome(word)) return []
 
-  for (let i = 0; i < str.length; i++) {
-    for (let j = i + 1; j < str.length; j++) {
-      let chars = str.split('')
+  for (let i = 0; i < word.length; i++) {
+    for (let j = i + 1; j < word.length; j++) {
+      let chars = word.split('')
       ;[chars[i], chars[j]] = [chars[j], chars[i]]
       let newStr = chars.join('')
 

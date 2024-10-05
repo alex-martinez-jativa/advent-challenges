@@ -6,6 +6,7 @@
   "scripts": {
     "challenge": "node runChallenge.js",
     "challenge:debug": "node debugChallenge.js",
+    "challenge:ts": "npx tsc && node",
     "test": "jest"
   },
   "keywords": [
@@ -20,6 +21,7 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.1",
     "jest": "^29.7.0",
-    "prettier": "^3.1.0"
+    "prettier": "^3.1.0",
+    "typescript": "^5.6.2"
   }
 }
