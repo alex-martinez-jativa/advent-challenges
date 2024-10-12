@@ -30,4 +30,12 @@ describe('checkIsValidCopy', () => {
 
     expect(response).toBe(false)
   })
+  test('should return false', () => {
+    const response = checkIsValidCopy('s+#:.#c:. s', 's#+:.#c:. s')
+    expect(response).toBe(false)
+  })
+  test('should return false', () => {
+    const response = checkIsValidCopy('S#nta Claus', 'S#ntA ClauS')
+    expect(response).toBe(false)
+  })
 })
